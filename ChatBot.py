@@ -1,3 +1,4 @@
+pip install langchain PyPDF2
 import streamlit
 import langchain
 import streamlit as st
