@@ -1,5 +1,38 @@
 import pandas as pd
 import numpy as np
+
+# Générer un tableau avec des données fictives
+np.random.seed(42)
+
+# Nombre de sondages
+n = 1000
+
+# Coordonnées X, Y et Z aléatoires dans une plage définie
+x = np.random.uniform(0, 100, n)  # X entre 0 et 100 mètres
+y = np.random.uniform(0, 100, n)  # Y entre 0 et 100 mètres
+z = np.random.uniform(40, 60, n)  # Z entre 40 et 60 mètres de profondeur
+
+# Teneur en minerai aléatoire (entre 1% et 5%)
+teneur = np.random.uniform(1, 5, n)
+
+
+# Créer un DataFrame
+df = pd.DataFrame({
+    'ID_Sondage': np.arange(1, n + 1),
+    'X': x,
+    'Y': y,
+    'Z': z,
+    'Teneur': teneur
+})
+
+# Sauvegarder dans un fichier CSV
+df.to_csv('donnees_sondage.csv', index=False)
+
+print(df.head())  # Affiche les premières lignes du tableau
+
+
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import pdist, squareform, cdist
 
